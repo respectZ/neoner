@@ -1,4 +1,5 @@
 using UnityEngine;
+using Neoner.Controller;
 
 namespace Neoner.Objects
 {
@@ -11,7 +12,8 @@ namespace Neoner.Objects
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                // StarterAssets.StarterAssetsInputs inputs = other.gameObject.GetComponent<StarterAssets.StarterAssetsInputs>();
+                PlayerController inputs = other.gameObject.GetComponent<PlayerController>();
+                inputs.Warp(_checkpoint.transform.position);
             }
         }
     }

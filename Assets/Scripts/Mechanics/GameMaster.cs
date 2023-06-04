@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Neoner.Objects;
 using UnityEngine.InputSystem;
-
 namespace Neoner.Mechanics
 {
 
@@ -46,6 +45,16 @@ namespace Neoner.Mechanics
                         neonComponent.Toggle();
                 }
             }
+            // UI Player Neon Indicator
+            // Find tag
+            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+            if (player.Length == 0)
+            {
+                Debug.LogError("No player found!");
+                return;
+            }
+            foreach (GameObject p in player)
+                p.GetComponent<Neoner.InputSystem.PlayerInputs>().NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(CurrentColor);
         }
     }
 }
