@@ -41,7 +41,7 @@ namespace Neoner.UI
                     break;
                 case NeonColor.LightBlue:
                     _image.sprite = _shapeLightBlue;
-                    _image.color = new Color(0f, 1f, 238 / 255f, 1f);
+                    _image.color = new Color(0f, 0f, 1f, 1f);
                     // Readjust offset
                     // _image.rectTransform.position = new Vector2(0, 50f);
                     // _image.rectTransform.sizeDelta = new Vector2(100f, 100f);
