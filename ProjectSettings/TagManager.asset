@@ -10,6 +10,7 @@ TagManager:
   - NeonGreen
   - GameMaster
   - NeonParticle
+  - PickableItem
   layers:
   - Default
   - TransparentFX

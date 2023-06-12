@@ -11,6 +11,23 @@ namespace Neoner.Mechanics
         public NeonColor CurrentColor = NeonColor.LightBlue;
         private NeonColor[] _neonColors = new NeonColor[] { NeonColor.Red, NeonColor.Green, NeonColor.LightBlue };
         private Dictionary<string, GameObject[]> _neons = new Dictionary<string, GameObject[]>();
+        private bool isStageComplete = false;
+
+        public void CompleteStage()
+        {
+            if (isStageComplete)
+                return;
+            isStageComplete = true;
+            Debug.Log("Stage Complete!");
+            // TODO: Stop timer
+            GameObject.FindObjectOfType<Neoner.UI.TimerText>().IsEnabled = false;
+            // TODO: Stop player movement
+            // Find object tagged "Player"
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            // Call CompleteStage() method on PlayerController
+            player.GetComponent<Neoner.Controller.PlayerController>().CompleteStage();
+            // TODO: Show complete screen
+        }
 
         private void GetNeons()
         {

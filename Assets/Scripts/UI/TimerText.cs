@@ -8,6 +8,7 @@ namespace Neoner.UI
         private float _startTime = 0f;
         private float _currentTime = 0f;
         private TMP_Text _textMesh;
+        public bool IsEnabled = true;
 
         private void Start()
         {
@@ -17,6 +18,8 @@ namespace Neoner.UI
 
         private void Update()
         {
+            if (!IsEnabled)
+                return;
             _currentTime = Time.time - _startTime;
             // Format string -> MM:SS.ms
             _textMesh.text = string.Format("{0:00}:{1:00}.{2:00}", _currentTime / 60, _currentTime % 60, (_currentTime * 100) % 100);
