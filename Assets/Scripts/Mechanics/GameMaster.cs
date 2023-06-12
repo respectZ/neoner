@@ -18,6 +18,14 @@ namespace Neoner.Mechanics
         private Dictionary<string, GameObject[]> _neons = new Dictionary<string, GameObject[]>();
         private bool isStageComplete = false;
 
+        [Header("Scenes")]
+        [Tooltip("Name of the scene to load when player completes the stage. Example: Scenes/Stage2")]
+        [SerializeField]
+        private string MainMenuSceneName = "Scenes/MainMenu";
+        [Tooltip("Name of the scene to load when player completes the stage. Example: Scenes/Stage2")]
+        [SerializeField]
+        private string NextStageSceneName = "Scenes/Stage2";
+
         public void CompleteStage()
         {
             if (isStageComplete)
@@ -51,12 +59,13 @@ namespace Neoner.Mechanics
         {
             // TODO: Next Stage
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // SceneManager.LoadScene(NextStageSceneName);
         }
         public void MainMenu()
         {
             // TODO: Main Menu
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // SceneManager.LoadScene("MainMenu");
+            // SceneManager.LoadScene(MainMenuSceneName);
         }
 
         private void GetNeons()
