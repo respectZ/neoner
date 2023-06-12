@@ -294,6 +294,7 @@ namespace Neoner.Controller
         public void CompleteStage()
         {
             // Disable inputs
+            // _controller.enabled = false;
             _input.enabled = false;
         }
     }

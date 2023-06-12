@@ -1,12 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using Neoner.Objects;
 using UnityEngine.InputSystem;
+using TMPro;
+
 namespace Neoner.Mechanics
 {
 
     public class GameMaster : MonoBehaviour
     {
+        [SerializeField]
+        private string StageName = "Lorem Ipsum";
         [SerializeField]
         public NeonColor CurrentColor = NeonColor.LightBlue;
         private NeonColor[] _neonColors = new NeonColor[] { NeonColor.Red, NeonColor.Green, NeonColor.LightBlue };
@@ -19,14 +24,39 @@ namespace Neoner.Mechanics
                 return;
             isStageComplete = true;
             Debug.Log("Stage Complete!");
-            // TODO: Stop timer
-            GameObject.FindObjectOfType<Neoner.UI.TimerText>().IsEnabled = false;
-            // TODO: Stop player movement
+            Neoner.UI.TimerText timerText = GameObject.FindObjectOfType<Neoner.UI.TimerText>();
+            timerText.enabled = false;
             // Find object tagged "Player"
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             // Call CompleteStage() method on PlayerController
             player.GetComponent<Neoner.Controller.PlayerController>().CompleteStage();
             // TODO: Show complete screen
+            GameObject canvas = transform.Find("Canvas").gameObject;
+            // Update timer text
+            canvas.transform.Find("Time").GetComponent<TMP_Text>().text = "Waktu: " + timerText.GetComponent<TMP_Text>().text;
+            // Get children named "Canvas"
+            canvas.SetActive(true);
+            transform.Find("EventSystem").gameObject.SetActive(true);
+            // Show cursor
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorLocked = false;
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorInputForLook = false;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        public void RestartStage()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        public void NextStage()
+        {
+            // TODO: Next Stage
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        public void MainMenu()
+        {
+            // TODO: Main Menu
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // SceneManager.LoadScene("MainMenu");
         }
 
         private void GetNeons()
@@ -45,6 +75,7 @@ namespace Neoner.Mechanics
 
         private void Start()
         {
+            // CompleteStage();
             GetNeons();
             ToggleNeon();
         }

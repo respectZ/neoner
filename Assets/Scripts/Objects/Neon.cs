@@ -26,10 +26,10 @@ namespace Neoner.Objects
 
         public void Toggle()
         {
-            Debug.Log("Toggling neon " + color.ToString());
+            // Debug.Log("Toggling neon " + color.ToString());
             isActive = !isActive;
             boxCollider.enabled = isActive;
-            Debug.Log("Neon " + color.ToString() + " is now " + (isActive ? "active" : "inactive"));
+            // Debug.Log("Neon " + color.ToString() + " is now " + (isActive ? "active" : "inactive"));
             // Toggle particle system
             if (_particleSystem != null)
             {
