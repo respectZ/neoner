@@ -71,8 +71,10 @@ namespace Neoner.Controller
         private float _fallTimeoutDelta;
 
         private CharacterController _controller;
+        private SoundController _soundController;
         private PlayerInputs _input;
         private GameObject _mainCamera;
+        private AudioSource _audioSource;
 
         private const float _threshold = 0.01f;
 
@@ -88,7 +90,9 @@ namespace Neoner.Controller
         private void Start()
         {
             _controller = GetComponent<CharacterController>();
+            _soundController = GetComponent<SoundController>();
             _input = GetComponent<PlayerInputs>();
+            _audioSource = GetComponent<AudioSource>();
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
@@ -112,7 +116,33 @@ namespace Neoner.Controller
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
             // Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, 513, QueryTriggerInteraction.Ignore);
+            bool temp = Physics.CheckSphere(spherePosition, GroundedRadius, 513, QueryTriggerInteraction.Ignore);
+            if (Grounded && !temp)
+            {
+                Collider[] colliders = Physics.OverlapSphere(spherePosition, GroundedRadius, 513, QueryTriggerInteraction.Ignore);
+                foreach (Collider collider in colliders)
+                {
+                    if (collider.gameObject.tag.Contains("Neon"))
+                        _audioSource.clip = _soundController.NeonJumpSound;
+                    else
+                        _audioSource.clip = _soundController.JumpSound;
+                }
+                _audioSource.Play();
+            }
+            else if (!Grounded && temp)
+            {
+                Collider[] colliders = Physics.OverlapSphere(spherePosition, GroundedRadius, 513, QueryTriggerInteraction.Ignore);
+                foreach (Collider collider in colliders)
+                {
+                    if (collider.gameObject.tag.Contains("Neon"))
+                        _audioSource.clip = _soundController.NeonLandSound;
+                    else
+                        _audioSource.clip = _soundController.LandSound;
+                }
+                _audioSource.Play();
+            }
+
+            Grounded = temp;
         }
 
         private void CameraRotation()

@@ -59,6 +59,8 @@ namespace Neoner.InputSystem
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.Red;
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Red);
+                // Get child that named "NeonSFX"
+                GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
             }
         }
         public void OnToggleNeonGreen(InputValue value)
@@ -68,6 +70,8 @@ namespace Neoner.InputSystem
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.Green;
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Green);
+                // Get child that named "NeonSFX"
+                GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
             }
         }
         public void OnToggleNeonLightBlue(InputValue value)
@@ -77,6 +81,8 @@ namespace Neoner.InputSystem
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.LightBlue;
                 GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.LightBlue);
+                // Get child that named "NeonSFX"
+                GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
             }
         }
 #else
