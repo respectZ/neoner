@@ -15,7 +15,7 @@ namespace Neoner.Mechanics
         [SerializeField]
         public NeonColor CurrentColor = NeonColor.LightBlue;
         private NeonColor[] _neonColors = new NeonColor[] { NeonColor.Red, NeonColor.Green, NeonColor.LightBlue };
-        private Dictionary<string, GameObject[]> _neons = new Dictionary<string, GameObject[]>();
+        protected Dictionary<string, GameObject[]> _neons = new Dictionary<string, GameObject[]>();
         private bool isStageComplete = false;
 
         [Header("Scenes")]
@@ -88,7 +88,7 @@ namespace Neoner.Mechanics
             GetNeons();
             ToggleNeon();
         }
-        public void ToggleNeon()
+        public virtual void ToggleNeon()
         {
             // Loop through all neons, disable if color is current color, enable if not
             foreach (KeyValuePair<string, GameObject[]> entry in _neons)

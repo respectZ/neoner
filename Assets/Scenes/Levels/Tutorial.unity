@@ -8272,6 +8272,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 312096946}
+    - target: {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: NextStageSceneName
+      value: Scenes/Levels/Stage_01
+      objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
       propertyPath: m_RootOrder
       value: 3
