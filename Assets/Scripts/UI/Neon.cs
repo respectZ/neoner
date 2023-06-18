@@ -14,6 +14,12 @@ namespace Neoner.UI
         [SerializeField]
         private Sprite _shapeLightBlue;
 
+        [SerializeField]
+        private Sprite _shapeYellow;
+
+        [SerializeField]
+        private Sprite _shapePurple;
+
         private Image _image;
 
         private void Awake()
@@ -45,6 +51,14 @@ namespace Neoner.UI
                     // Readjust offset
                     // _image.rectTransform.position = new Vector2(0, 50f);
                     // _image.rectTransform.sizeDelta = new Vector2(100f, 100f);
+                    break;
+                case NeonColor.Yellow:
+                    _image.sprite = _shapeYellow;
+                    _image.color = new Color(1f, 1f, 0f, 1f);
+                    break;
+                case NeonColor.Purple:
+                    _image.sprite = _shapePurple;
+                    _image.color = new Color(1f, 0f, 1f, 1f);
                     break;
             }
         }

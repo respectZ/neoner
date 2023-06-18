@@ -54,10 +54,14 @@ namespace Neoner.InputSystem
 
         public void OnToggleNeonRed(InputValue value)
         {
+            GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+            // Check if contain in NeonColors
+            if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.Red) == -1)
+                return;
             if (value.isPressed)
             {
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.Red;
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
+                gameMaster.CurrentColor = NeonColor.Red;
+                gameMaster.ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Red);
                 // Get child that named "NeonSFX"
                 GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
@@ -65,10 +69,14 @@ namespace Neoner.InputSystem
         }
         public void OnToggleNeonGreen(InputValue value)
         {
+            GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+            // Check if contain in NeonColors
+            if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.Green) == -1)
+                return;
             if (value.isPressed)
             {
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.Green;
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
+                gameMaster.CurrentColor = NeonColor.Green;
+                gameMaster.ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Green);
                 // Get child that named "NeonSFX"
                 GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
@@ -76,11 +84,45 @@ namespace Neoner.InputSystem
         }
         public void OnToggleNeonLightBlue(InputValue value)
         {
+            GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+            // Check if contain in NeonColors
+            if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.LightBlue) == -1)
+                return;
             if (value.isPressed)
             {
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().CurrentColor = NeonColor.LightBlue;
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().ToggleNeon();
+                gameMaster.CurrentColor = NeonColor.LightBlue;
+                gameMaster.ToggleNeon();
                 NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.LightBlue);
+                // Get child that named "NeonSFX"
+                GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
+            }
+        }
+        public void OnToggleNeonYellow(InputValue value)
+        {
+            GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+            // Check if contain in NeonColors
+            if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.Yellow) == -1)
+                return;
+            if (value.isPressed)
+            {
+                gameMaster.CurrentColor = NeonColor.Yellow;
+                gameMaster.ToggleNeon();
+                NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Yellow);
+                // Get child that named "NeonSFX"
+                GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
+            }
+        }
+        public void OnToggleNeonPurple(InputValue value)
+        {
+            GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+            // Check if contain in NeonColors
+            if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.Purple) == -1)
+                return;
+            if (value.isPressed)
+            {
+                gameMaster.CurrentColor = NeonColor.Purple;
+                gameMaster.ToggleNeon();
+                NeonIndicator.GetComponent<Neoner.UI.Neon>().Toggle(NeonColor.Purple);
                 // Get child that named "NeonSFX"
                 GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
             }

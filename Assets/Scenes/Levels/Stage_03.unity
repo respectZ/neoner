@@ -138,6 +138,14 @@ PrefabInstance:
       propertyPath: StageLevel
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
+      propertyPath: _neonColors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
+      propertyPath: _neonColors.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -692,6 +700,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901872266007911446, guid: d56910e13a2bfa941b445576bcbd0d51, type: 3}
+      propertyPath: _shapePurple
+      value: 
+      objectReference: {fileID: 21300000, guid: 7830f726c3085234b877b55a5d5d830f, type: 3}
+    - target: {fileID: 4901872266007911446, guid: d56910e13a2bfa941b445576bcbd0d51, type: 3}
+      propertyPath: _shapeYellow
+      value: 
+      objectReference: {fileID: 21300000, guid: 2260b2fe754674b4f97ed3872ed1f122, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56910e13a2bfa941b445576bcbd0d51, type: 3}
 --- !u!1 &1575180429 stripped

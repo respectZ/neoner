@@ -17,7 +17,10 @@ namespace Neoner.Mechanics
         private int StageLevel = 1;
         [SerializeField]
         public NeonColor CurrentColor = NeonColor.LightBlue;
+        [Header("List of neon colors")]
+        [SerializeField]
         private NeonColor[] _neonColors = new NeonColor[] { NeonColor.Red, NeonColor.Green, NeonColor.LightBlue };
+        public NeonColor[] NeonColors { get { return _neonColors; } }
         protected Dictionary<string, GameObject[]> _neons = new Dictionary<string, GameObject[]>();
         private bool isStageComplete = false;
 
@@ -104,6 +107,10 @@ namespace Neoner.Mechanics
             Neon[] neons = GameObject.FindObjectsOfType<Neon>();
             foreach (Neon neon in neons)
             {
+                // Check if neon color is in _neonColors
+                if (System.Array.IndexOf(_neonColors, neon.Color) == -1)
+                    continue;
+
                 if (!_neons.ContainsKey(neon.Color.ToString()))
                     _neons.Add(neon.Color.ToString(), new GameObject[] { neon.gameObject });
                 else
