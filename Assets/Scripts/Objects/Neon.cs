@@ -50,5 +50,7 @@ namespace Neoner.Objects
         Red,
         Green,
         LightBlue,
+        Yellow,
+        Purple,
     }
 }
