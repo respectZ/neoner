@@ -94,11 +94,24 @@ namespace Neoner.Mechanics
             // For example, if _neonColors is ["Red", "Green", "LightBlue"]
             // then this will find game objects with tag "Red", "Green", "LightBlue"
             _neons.Clear();
-            foreach (NeonColor color in _neonColors)
+            // foreach (NeonColor color in _neonColors)
+            // {
+            //     GameObject[] neons = GameObject.FindGameObjectsWithTag("Neon" + color.ToString());
+            //     Debug.Log("Found " + neons.Length + " neons with tag Neon" + color.ToString());
+            //     _neons.Add(color.ToString(), neons);
+            // }
+            // Find object by type Neon
+            Neon[] neons = GameObject.FindObjectsOfType<Neon>();
+            foreach (Neon neon in neons)
             {
-                GameObject[] neons = GameObject.FindGameObjectsWithTag("Neon" + color.ToString());
-                Debug.Log("Found " + neons.Length + " neons with tag Neon" + color.ToString());
-                _neons.Add(color.ToString(), neons);
+                if (!_neons.ContainsKey(neon.Color.ToString()))
+                    _neons.Add(neon.Color.ToString(), new GameObject[] { neon.gameObject });
+                else
+                {
+                    List<GameObject> list = new List<GameObject>(_neons[neon.Color.ToString()]);
+                    list.Add(neon.gameObject);
+                    _neons[neon.Color.ToString()] = list.ToArray();
+                }
             }
         }
 
