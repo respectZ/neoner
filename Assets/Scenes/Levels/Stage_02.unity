@@ -938,6 +938,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5725000371507048362, guid: b2452a5c2cd649a4db9eebcd16f7b155, type: 3}
   m_PrefabInstance: {fileID: 129054507}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &134128688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4387156202505660955, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
+  m_PrefabInstance: {fileID: 249183806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &134128689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134128688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c16840d0f312784d86a444dedadfce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageName: Stage 2
+  StageLevel: 2
+  CurrentColor: 2
+  MainMenuSceneName: Scenes/MainMenu
+  NextStageSceneName: Scenes/Stage2
 --- !u!1001 &150023686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,10 +1932,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4387156202505660948, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
-      propertyPath: StageName
-      value: Stage 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1962,7 +1980,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4387156202505660948, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
 --- !u!1 &256739843
 GameObject:

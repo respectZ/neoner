@@ -10,8 +10,11 @@ namespace Neoner.Mechanics
 
     public class GameMaster : MonoBehaviour
     {
+        [Header("Stage Information")]
         [SerializeField]
         private string StageName = "Lorem Ipsum";
+        [SerializeField]
+        private int StageLevel = 1;
         [SerializeField]
         public NeonColor CurrentColor = NeonColor.LightBlue;
         private NeonColor[] _neonColors = new NeonColor[] { NeonColor.Red, NeonColor.Green, NeonColor.LightBlue };
@@ -31,18 +34,35 @@ namespace Neoner.Mechanics
             if (isStageComplete)
                 return;
             isStageComplete = true;
-            Debug.Log("Stage Complete!");
             Neoner.UI.TimerText timerText = GameObject.FindObjectOfType<Neoner.UI.TimerText>();
             timerText.enabled = false;
             // Find object tagged "Player"
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             // Call CompleteStage() method on PlayerController
             player.GetComponent<Neoner.Controller.PlayerController>().CompleteStage();
-            // TODO: Show complete screen
+
+            // Update canvas
             GameObject canvas = transform.Find("Canvas").gameObject;
             // Update timer text
             canvas.transform.Find("Time").GetComponent<TMP_Text>().text = "Waktu: " + timerText.GetComponent<TMP_Text>().text;
-            // Get children named "Canvas"
+
+            // Save progress
+            Neoner.SaveData.Progress.Save(StageLevel);
+
+            // TODO: Star
+            // Parse float from text, mm:ss.ms
+            Neoner.SaveData.Level.Save(StageLevel, 1, timerText.CurrentTime);
+
+            // Get best record
+            float[] data = Neoner.SaveData.Level.Get(StageLevel);
+            if (data != null)
+            {
+                canvas.transform.Find("Time").GetComponent<TMP_Text>().text = "Rekor: " + string.Format("{0:00}:{1:00}.{2:00}", data[1] / 60, data[1] % 60, (data[1] * 100) % 100);
+            }
+            else
+            {
+                canvas.transform.Find("Time").GetComponent<TMP_Text>().text = "Rekor: -";
+            }
             canvas.SetActive(true);
             transform.Find("EventSystem").gameObject.SetActive(true);
             // Show cursor
@@ -58,8 +78,8 @@ namespace Neoner.Mechanics
         public void NextStage()
         {
             // TODO: Next Stage
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // SceneManager.LoadScene(NextStageSceneName);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(NextStageSceneName);
         }
         public void MainMenu()
         {

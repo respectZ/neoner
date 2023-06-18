@@ -7,6 +7,7 @@ namespace Neoner.UI
     {
         private float _startTime = 0f;
         private float _currentTime = 0f;
+        public float CurrentTime { get { return _currentTime; } }
         private TMP_Text _textMesh;
         public bool IsEnabled = true;
 
