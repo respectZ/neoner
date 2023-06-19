@@ -1970,7 +1970,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
 --- !u!1 &256739843
 GameObject:
@@ -5350,6 +5351,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7515332717815086903, guid: 65467f6b70ddf5e4890bd9f317b3a5b7, type: 3}
   m_PrefabInstance: {fileID: 973314647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &827008359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4387156202505660955, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+  m_PrefabInstance: {fileID: 249183806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827008360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827008359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c16840d0f312784d86a444dedadfce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageName: Stage 2
+  StageLevel: 2
+  CurrentColor: 0
+  _neonColors: 000000000100000002000000
+  MainMenuSceneName: Scenes/MainMenu
+  NextStageSceneName: Scenes/Levels/Stage_03
 --- !u!1001 &833077849
 PrefabInstance:
   m_ObjectHideFlags: 0
