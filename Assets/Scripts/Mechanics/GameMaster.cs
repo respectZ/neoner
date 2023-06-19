@@ -136,6 +136,8 @@ namespace Neoner.Mechanics
                 foreach (GameObject neon in entry.Value)
                 {
                     Neon neonComponent = neon.GetComponent<Neon>();
+                    neonComponent.Init();
+
                     if (neonComponent.Color == CurrentColor && !neonComponent.IsActive)
                         neonComponent.Toggle();
                     else if (neonComponent.Color != CurrentColor && neonComponent.IsActive)

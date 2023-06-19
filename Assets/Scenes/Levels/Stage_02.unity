@@ -958,8 +958,9 @@ MonoBehaviour:
   StageName: Stage 2
   StageLevel: 2
   CurrentColor: 2
+  _neonColors: 000000000100000002000000
   MainMenuSceneName: Scenes/MainMenu
-  NextStageSceneName: Scenes/Stage2
+  NextStageSceneName: Scenes/Levels/Stage_03
 --- !u!1001 &150023686
 PrefabInstance:
   m_ObjectHideFlags: 0

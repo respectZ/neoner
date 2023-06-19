@@ -9,6 +9,7 @@ namespace Neoner.Objects
         public NeonColor Color { get { return color; } }
 
         private BoxCollider boxCollider;
+        private MeshRenderer meshRenderer;
         [SerializeField]
         private ParticleSystem _particleSystem;
         private bool isActive = true;
@@ -22,6 +23,7 @@ namespace Neoner.Objects
         private void Start()
         {
             boxCollider = gameObject.GetComponent<BoxCollider>();
+            meshRenderer = gameObject.GetComponent<MeshRenderer>();
         }
 
         public void Toggle()
@@ -30,10 +32,36 @@ namespace Neoner.Objects
             isActive = !isActive;
             boxCollider.enabled = isActive;
             // Debug.Log("Neon " + color.ToString() + " is now " + (isActive ? "active" : "inactive"));
+            // Set mesh renderer
+            if (meshRenderer != null)
+            {
+                meshRenderer.enabled = isActive;
+            }
             // Toggle particle system
             if (_particleSystem != null)
             {
-                if (isActive)
+                if (!isActive)
+                {
+                    _particleSystem.Play();
+                }
+                else
+                {
+                    _particleSystem.Stop();
+                }
+            }
+        }
+        public void Init()
+        {
+            boxCollider.enabled = isActive;
+            // Set mesh renderer
+            if (meshRenderer != null)
+            {
+                meshRenderer.enabled = isActive;
+            }
+            // Toggle particle system
+            if (_particleSystem != null)
+            {
+                if (!isActive)
                 {
                     _particleSystem.Play();
                 }

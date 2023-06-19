@@ -134,10 +134,13 @@ namespace Neoner.Controller
                 Collider[] colliders = Physics.OverlapSphere(spherePosition, GroundedRadius, 513, QueryTriggerInteraction.Ignore);
                 foreach (Collider collider in colliders)
                 {
-                    if (collider.gameObject.tag.Contains("Neon"))
-                        _audioSource.clip = _soundController.NeonLandSound;
-                    else
+                    GameObject go = collider.gameObject;
+                    // Check if has Neon Component
+                    Neoner.Objects.Neon neon = go.GetComponent<Neoner.Objects.Neon>();
+                    if (neon == null)
                         _audioSource.clip = _soundController.LandSound;
+                    else
+                        _audioSource.clip = _soundController.NeonLandSound;
                 }
                 _audioSource.Play();
             }

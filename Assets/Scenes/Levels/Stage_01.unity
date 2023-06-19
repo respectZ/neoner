@@ -1914,6 +1914,10 @@ PrefabInstance:
       propertyPath: StageName
       value: Stage 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
+      propertyPath: NextStageSceneName
+      value: Scenes/Levels/Stage_02
+      objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
       propertyPath: m_RootOrder
       value: 4
