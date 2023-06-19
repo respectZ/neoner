@@ -1910,13 +1910,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4387156202505660948, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
-      propertyPath: StageName
-      value: Stage 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
+    - target: {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
       propertyPath: NextStageSceneName
       value: Scenes/Levels/Stage_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660954, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
       propertyPath: m_RootOrder
@@ -1967,7 +1967,7 @@ PrefabInstance:
       value: GameMaster
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4369ace1c76c9d64ab0ce03dbdfdd8d4, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
 --- !u!1 &256739843
 GameObject:
   m_ObjectHideFlags: 0

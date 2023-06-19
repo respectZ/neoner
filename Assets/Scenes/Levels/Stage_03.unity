@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 462971699}
-  m_IndirectSpecularColor: {r: 0.003985911, g: 0.007868035, b: 0.021311752, a: 1}
+  m_IndirectSpecularColor: {r: 0.025478387, g: 0.029326681, b: 0.04264781, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,34 +428,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: StageName
-      value: Stage 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: StageLevel
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: CurrentColor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: NextStageSceneName
-      value: Scenes/Levels/Stage_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: _neonColors.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387156202505660948, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-      propertyPath: _neonColors.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4387156202505660954, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -504,8 +476,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMaster
       objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: StageLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: CurrentColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660948, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: NextStageSceneName
+      value: Scenes/UI/MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387156202505660954, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c5bc89b5bfaa9844da2d80e3d178ae3a, type: 3}
 --- !u!1001 &261790589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1734,29 +1722,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b890216c6645c648bfde4c7ba8f0b08, type: 3}
---- !u!1 &652197514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4387156202505660955, guid: a3608720cb3bb064a9b4de6d9557755f, type: 3}
-  m_PrefabInstance: {fileID: 249183806}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &652197517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652197514}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c16840d0f312784d86a444dedadfce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageName: Stage 3
-  StageLevel: 3
-  CurrentColor: 0
-  _neonColors: 000000000100000002000000
-  MainMenuSceneName: Scenes/MainMenu
-  NextStageSceneName: Scenes/Levels/Stage_04
 --- !u!1001 &663472878
 PrefabInstance:
   m_ObjectHideFlags: 0

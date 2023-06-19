@@ -73,6 +73,11 @@ namespace Neoner.UI
 
 
         }
+        public void KembaliOnClick()
+        {
+            _stageSelection.SetActive(false);
+            _mainMenu.SetActive(true);
+        }
         public void ExitOnClick()
         {
             Application.Quit();
