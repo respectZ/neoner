@@ -172,6 +172,9 @@ namespace Neoner.Mechanics
             GameObject canvas = transform.Find("PauseMenu").gameObject;
             canvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            // Play sound
+            AudioSource bgm = transform.Find("BGM").GetComponent<AudioSource>();
+            bgm.Play();
             // CompleteStage();
             GetNeons();
             ToggleNeon();
