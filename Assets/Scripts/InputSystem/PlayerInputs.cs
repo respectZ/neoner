@@ -69,6 +69,7 @@ namespace Neoner.InputSystem
         }
         public void OnToggleNeonGreen(InputValue value)
         {
+            Debug.Log("OnToggleNeonGreen");
             GameMaster gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
             // Check if contain in NeonColors
             if (System.Array.IndexOf(gameMaster.NeonColors, NeonColor.Green) == -1)
