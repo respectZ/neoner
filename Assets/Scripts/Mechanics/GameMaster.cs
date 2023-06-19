@@ -32,6 +32,8 @@ namespace Neoner.Mechanics
         [SerializeField]
         private string NextStageSceneName = "Scenes/Stage2";
 
+        private bool _isPaused = false;
+
         public void CompleteStage()
         {
             if (isStageComplete)
@@ -74,6 +76,50 @@ namespace Neoner.Mechanics
             Cursor.lockState = CursorLockMode.None;
         }
 
+        public void Pause()
+        {
+            if (_isPaused)
+            {
+                Resume();
+                return;
+            }
+            _isPaused = true;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            // Enable EventSystem
+            transform.Find("EventSystem").gameObject.SetActive(true);
+
+            // Disable input
+            player.GetComponent<Neoner.Controller.PlayerController>().DisableInputs();
+            Cursor.lockState = CursorLockMode.None;
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorLocked = false;
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorInputForLook = false;
+
+            // Show canvas
+            GameObject canvas = transform.Find("PauseMenu").gameObject;
+            canvas.SetActive(true);
+        }
+
+        public void Resume()
+        {
+            _isPaused = false;
+            // Hide cursor
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            // Disable EventSystem
+            transform.Find("EventSystem").gameObject.SetActive(false);
+
+            // Disable input
+            player.GetComponent<Neoner.Controller.PlayerController>().EnableInputs();
+            Cursor.lockState = CursorLockMode.Locked;
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorLocked = true;
+            player.GetComponent<Neoner.InputSystem.PlayerInputs>().cursorInputForLook = true;
+
+            // Hide canvas
+            GameObject canvas = transform.Find("PauseMenu").gameObject;
+            canvas.SetActive(false);
+        }
+
         public void RestartStage()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -87,8 +133,7 @@ namespace Neoner.Mechanics
         public void MainMenu()
         {
             // TODO: Main Menu
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // SceneManager.LoadScene(MainMenuSceneName);
+            SceneManager.LoadScene(MainMenuSceneName);
         }
 
         private void GetNeons()
@@ -124,6 +169,9 @@ namespace Neoner.Mechanics
 
         private void Start()
         {
+            GameObject canvas = transform.Find("PauseMenu").gameObject;
+            canvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
             // CompleteStage();
             GetNeons();
             ToggleNeon();

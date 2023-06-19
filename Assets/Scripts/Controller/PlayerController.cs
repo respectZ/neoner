@@ -300,5 +300,17 @@ namespace Neoner.Controller
             // _controller.enabled = false;
             _input.enabled = false;
         }
+        public void DisableInputs()
+        {
+            // Disable inputs
+            // _controller.enabled = false;
+            _input.enabled = false;
+        }
+        public void EnableInputs()
+        {
+            // Enable inputs
+            // _controller.enabled = true;
+            _input.enabled = true;
+        }
     }
 }

@@ -128,6 +128,14 @@ namespace Neoner.InputSystem
                 GameObject.Find("NeonSFX").GetComponent<AudioSource>().Play();
             }
         }
+
+        public void OnPause(InputValue value)
+        {
+            if (value.isPressed)
+            {
+                GameObject.Find("GameMaster").GetComponent<GameMaster>().Pause();
+            }
+        }
 #else
         // old input sys if we do decide to have it (most likely wont)...
 #endif
